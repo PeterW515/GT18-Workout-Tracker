@@ -6,12 +6,8 @@ const mongoose = require('mongoose');
 //bring in routes
 const routes = require('./controllers');
 
-
 //set port
 const PORT = process.env.PORT || 3000;
-
-//link to models folder
-const db = require('./models');
 
 //establish app as express
 const app = express();
