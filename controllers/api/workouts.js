@@ -7,7 +7,8 @@ router.get('/', async (req, res) => {
         const data = await db.Workout.aggregate([
             {
                 $addFields: {
-                    totalDuration: { $sum: "$exercises.duration" }
+                    totalDuration: { $sum: "$exercises.duration" },
+                    totalDistance: {$sum: "$exercises.distance"}
                 }
             }
         ]);
@@ -29,9 +30,12 @@ router.post('/', async (req, res) => {
 });
 
 //this route adds a new exercise to a workout
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
-        const data = await db.Workout.create(req.body);
+        const data = await db.Workout.updateOne(
+            { _id: req.params.id },
+            { $push: { exercises: req.body } }
+        );
         res.json(data);
     } catch (err) {
         res.status(500).json(err);
