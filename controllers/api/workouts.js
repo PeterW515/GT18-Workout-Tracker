@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const db = require('../../models');
 
+//this route gets the latest exercises
 router.get('/', async (req, res) => {
     try {
-        //const data = await db.Workout.find({});
-        //use aggregate to sum fields for total duration
         const data = await db.Workout.aggregate([
             {
                 $addFields: {
@@ -16,6 +15,28 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
-})
+});
+
+
+//this route adds a new workout
+router.post('/', async (req, res) => {
+    try {
+        const data = await db.Workout.create(req.body);
+        res.json(data);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
+//this route adds a new exercise to a workout
+router.put('/', async (req, res) => {
+    try {
+        const data = await db.Workout.create(req.body);
+        res.json(data);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
 
 module.exports = router;
