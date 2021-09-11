@@ -53,7 +53,7 @@ router.get('/range', async (req, res) => {
                     totalDistance: { $sum: "$exercises.distance" }
                 }
             }
-        ]).sort({ _id: 1 }).limit(7);
+        ]).sort({ _id: -1 }).limit(7);
         res.json(data);
     } catch (err) {
         res.status(500).json(err);
