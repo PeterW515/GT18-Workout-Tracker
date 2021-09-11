@@ -3,6 +3,12 @@
   [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
   This project uses a MongoDB and Node backend to track a user's workouts over time. It also allows the user to view a stats page that shows the total weight lifted in each of the past seven workouts, as well as the total duration. 
+  
+  ![image](https://user-images.githubusercontent.com/78565748/132932320-ac6e4bb1-a2d7-4593-8681-1cf5d88b9a2a.png)
+
+
+Link to deployed app: https://gt18-workout-tracker.herokuapp.com/
+
 
   ---
 
